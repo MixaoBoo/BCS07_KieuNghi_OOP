@@ -1,0 +1,128 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+}
+
+header .header_content ul li {
+  color: white;
+  position: relative;
+  transition: all 0.3s linear;
+}
+header .header_content ul li::after {
+  content: "";
+  background-color: white;
+  position: absolute;
+  left: 0;
+  bottom: -5px;
+  width: 0;
+  height: 1px;
+  transition: all 0.3s linear;
+}
+header .header_content ul li:hover {
+  color: white;
+  transform: translateY(-3px);
+}
+header .header_content ul li:hover::after {
+  width: 100%;
+}
+header .header_content .users {
+  color: white;
+  transition: all 0.5s linear;
+}
+header .header_content .users:hover {
+  color: white;
+  transform: translateY(-3px);
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  padding: 5%;
+  background-color: #f5f3f4;
+}
+main .body_header {
+  margin-bottom: 30px;
+}
+main .body_header .search_bar {
+  width: 100%;
+  max-width: 400px;
+  background: rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 40px;
+  padding: 0px 12px;
+}
+main .body_header .search_bar .search {
+  background-color: transparent;
+  flex: 1;
+  border: 0;
+  outline: none;
+  padding: 20px;
+  font-size: 20px;
+  color: #000;
+  font-weight: 300;
+}
+main .body_header .search_bar .search::-moz-placeholder {
+  font-weight: 200;
+}
+main .body_header .search_bar .search::placeholder {
+  font-weight: 200;
+}
+main .body_header .search_bar .search_button {
+  border: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all 0.5s linear;
+}
+main .body_header .search_bar .search_button:hover {
+  background-color: #000;
+  color: white;
+}
+main .body_header .btn_container .btn_add {
+  padding: 24px;
+  margin-left: 20px;
+  border-radius: 60px;
+  background-color: #000;
+  color: white;
+  border: none;
+  transition: all 0.5s linear;
+}
+main .body_header .btn_container .btn_add:hover {
+  background-color: white;
+  color: #000;
+  transform: translateY(-5px);
+  box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+}
+main .body_header .btn_container i {
+  font-weight: 700;
+  margin-right: 8px;
+}
+main .body_content .table #tbody {
+  font-weight: 200;
+}
+
+footer {
+  background-color: #000;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+footer .footer__right a {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: all 0.5s linear;
+}
+footer .footer__right a:hover {
+  background-color: white;
+  color: #000;
+}
+footer .footer__right a i {
+  line-height: 50px;
+}
