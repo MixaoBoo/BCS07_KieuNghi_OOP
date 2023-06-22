@@ -57,17 +57,44 @@
     </header>
     <main>
       <div class="container">
-        <div class="body_header d-flex justify-content-end align-items-center">
-          <form action="" class="search_bar" style="border: 3px dashed #000">
-            <input class="search" type="search" placeholder="Search here..." />
-            <button class="search_button" type="submit">
-              <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-          </form>
-          <!-- Button trigger modal -->
-          <div class="btn_container">
+        <div
+          class="body_header d-flex justify-content-between align-items-center"
+        >
+          <div
+            class="filterList d-flex justify-content-start align-items-center"
+          >
+            <p class="me-4">Lọc đối tượng</p>
+            <div class="mb-3">
+              <select
+                class="form-select form-select-lg"
+                style="font-weight: 200; font-size: 16px"
+                name=""
+                id="chonDoiTuong"
+                oninput="searchTypePerson(event)"
+              >
+                <option value="all">All</option>
+                <option value="Student">Student</option>
+                <option value="Employee">Employee</option>
+                <option value="Customer">Customer</option>
+              </select>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end align-items-center">
+            <form action="" class="search_bar" style="border: 3px dashed #000">
+              <input
+                class="search"
+                type="search"
+                oninput="searchPerson(event)"
+                placeholder="Search here..."
+              />
+              <button class="search_button" type="submit">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+            </form>
+            <!-- Button trigger modal -->
             <button
               type="button"
+              id="addPerson"
               class="btn_add btn btn-primary"
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
@@ -76,60 +103,33 @@
               Thêm người
             </button>
           </div>
-
-          <!-- <div class="btn_container">
-            <a href="#modal-body" class="btn_add nav-link">
-              <i class="fa-solid fa-plus"></i>
-              <span>Thêm người</span>
-            </a>
-          </div> -->
         </div>
         <div class="body_content">
-          <table class="table table-bordered" style="border: 1px solid #000">
+          <table
+            class="table table-bordered align-middle"
+            style="border: 1px solid #000"
+          >
             <thead class="table_header">
               <tr class="table-dark">
                 <th>ID</th>
-                <th>HỌ VÀ TÊN</th>
+                <th class="d-flex justify-content-evenly align-items-center">
+                  <span>HỌ VÀ TÊN</span>
+                  <div
+                    class="btn-arrange bg-black text-white ms-3 px-3"
+                    onclick="clickToOrderName()"
+                    style="outline: none; cursor: pointer"
+                  >
+                    <i class="fa-solid fa-arrow-down-a-z"></i>
+                  </div>
+                </th>
                 <th>EMAIL</th>
+                <th>ĐỊA CHỈ</th>
                 <th>LOẠI NGƯỜI DÙNG</th>
                 <th>THÔNG TIN RIÊNG</th>
                 <th>CHỨC NĂNG</th>
               </tr>
             </thead>
-            <tbody id="tbody" class="">
-              <tr>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-              </tr>
-              <tr>
-                <td>Larry the Bird</td>
-                <td>Larry the Bird</td>
-                <td>@twitter</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-                <td>Mark</td>
-                <td>Mark</td>
-                <td>Mark</td>
-              </tr>
-            </tbody>
+            <tbody id="tbody" class=""></tbody>
           </table>
         </div>
       </div>
@@ -158,71 +158,93 @@
               aria-label="Close"
             ></button>
           </div>
-          <div class="modal-body">
+          <div class="modal-body" id="formInput">
             <div class="row">
               <div class="mb-3 col-6">
                 <label for="" class="form-label">HỌ VÀ TÊN</label>
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control main-input is-invalid" required
                   name=""
-                  id=""
+                  id="hoTen"
                   aria-describedby="helpId"
                   placeholder=""
                 />
+                <p id="tbHoTen" class="text-error"></p>
               </div>
               <div class="mb-3 col-6">
                 <label for="" class="form-label">ID</label>
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control main-input is-invalid" required
                   name=""
-                  id=""
+                  id="ma"
                   aria-describedby="helpId"
                   placeholder=""
                 />
+                <p id="tbID" class="text-error"></p>
               </div>
               <div class="mb-3 col-6">
                 <label for="" class="form-label">EMAIL</label>
                 <input
                   type="email"
-                  class="form-control"
+                  class="form-control main-input is-invalid" required
                   name=""
-                  id=""
+                  id="email"
                   aria-describedby="helpId"
                   placeholder=""
                 />
+                <p id="tbEmail" class="text-error"></p>
               </div>
               <div class="mb-3 col-6">
                 <label for="" class="form-label">ĐỊA CHỈ</label>
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control main-input is-invalid" required
                   name=""
-                  id=""
+                  id="diaChi"
                   aria-describedby="helpId"
                   placeholder=""
                 />
+                <p id="tbDiaChi" class="text-error"></p>
               </div>
               <div class="mb-3 col-6">
                 <label for="" class="form-label">ĐỐI TƯỢNG</label>
-                <select class="form-select form-select-lg" name="" id="">
+                <select
+                  class="form-select form-select-lg is-invalid" required
+                  name=""
+                  id="doiTuong"
+                  onchange="handleChangeUserType()"
+                >
                   <option value="Student">Student</option>
                   <option value="Employee">Employee</option>
                   <option value="Customer">Customer</option>
                 </select>
               </div>
+              <p id="tbDoiTuong" class="text-error"></p>
+              <div id="idDoiTuong" class="doiTuong"></div>
             </div>
           </div>
           <div class="modal-footer">
             <button
               type="button"
+              id="btnClose"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
             >
-              Close
+              Đóng
             </button>
-            <button type="button" class="btn btn-success">Save</button>
+            <button
+              type="button"
+              id="btnUpdate"
+              class="btn btn-warning"
+              data-bs-dismiss="modal"
+            >
+              Cập nhật
+            </button>
+            <button id="btnSave" type="button" class="btn btn-success">
+              Thêm
+            </button>
           </div>
         </div>
       </div>
@@ -269,5 +291,7 @@
       integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
       crossorigin="anonymous"
     ></script>
+    <!-- file js -->
+    <script type="module" src="./controllers/index.js"></script>
   </body>
 </html>
