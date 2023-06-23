@@ -30,3 +30,56 @@ export default function removeVietnameseTones(str) {
   );
   return str;
 }
+
+const getInput = () => {
+  const hoTen = document.getElementById("hoTen").value;
+  const ma = document.getElementById("ma").value;
+  const email = document.getElementById("email").value;
+  const diaChi = document.getElementById("diaChi").value;
+  const doiTuong = document.getElementById("doiTuong").value;
+  const diemToan = document.getElementById("diemToan").value;
+  const diemLy = document.getElementById("diemLy").value;
+  const diemHoa = document.getElementById("diemHoa").value;
+  const luongNgay = document.getElementById("luongNgay").value;
+  const ngayLam = document.getElementById("ngayLam").value;
+  const tenCty = document.getElementById("tenCty").value;
+  const hoaDon = document.getElementById("hoaDon").value;
+  const danhGia = document.getElementById("danhGia").value;
+
+  let isValid = true;
+  isValid =
+    kiemTraRong(hoTen, "tbHoTen", "hoTen") &
+    kiemTraRong(ma, "tbID", "ma") &
+    kiemTraRong(diaChi, "tbDiaChi", "diaChi") &
+    kiemTraRong(doiTuong, "tbDoiTuong", "doiTuong") &
+    kiemTraRong(diemToan, "tbDiemToan", "diemToan") &
+    kiemTraRong(diemLy, "tbDiemLy", "diemLy") &
+    kiemTraRong(diemHoa, "tbDiemHoa", "diemHoa") &
+    kiemTraRong(luongNgay, "tbLuongNgay", "luongNgay") &
+    kiemTraRong(ngayLam, "tbNgayLam", "ngayLam") &
+    kiemTraRong(tenCty, "tbTenCty", "tenCty") &
+    kiemTraRong(hoaDon, "tbHoaDon", "hoaDon") &
+    kiemTraRong(danhGia, "tbDanhGia", "danhGia") &
+    kiemTraEmail(email, "tbEmail") &
+    checkName(hoTen, "tbHoTen");
+
+  if (!isValid) {
+    return;
+  }
+
+  return {
+  hoTen,
+  ma,
+  email,
+  diaChi,
+  doiTuong,
+  diemToan,
+  diemLy,
+  diemHoa,
+  luongNgay,
+  ngayLam,
+  tenCty,
+  hoaDon,
+  danhGia,
+  };
+};
