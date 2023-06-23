@@ -29,7 +29,8 @@ export default class ListPerson {
             </td>
           </tr>`;
     });
-    document.getElementById("tbody").innerHTML = content;
+    let newContent = content.reduce((arr, text) => (arr += text), "");
+    document.getElementById("tbody").innerHTML = newContent;
   };
   luuLocal() {
     localStorage.setItem("listPerson", JSON.stringify(this.listPerson));

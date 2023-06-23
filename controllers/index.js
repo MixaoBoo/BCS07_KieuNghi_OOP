@@ -193,7 +193,7 @@ window.removePerson = (id) => {
 };
 window.handleClickEditModalOpen = (id) => {
   listPerson.getInfoDetail(id);
-  document.getElementById('addAndEditModal').classList.add('edit');
+  document.getElementById("addAndEditModal").classList.add("edit");
   handleDisableTag();
 };
 window.handleChangeUserType = () => {
@@ -228,9 +228,7 @@ window.clickToOrderName = () => {
 };
 
 const checkedValidation = () => {
-  let arrInput = document.querySelectorAll(
-    "#formInput .main-input"
-  );
+  let arrInput = document.querySelectorAll("#formInput .main-input");
   let arrInputDoiTuong = document.querySelectorAll("#idDoiTuong input");
   let allInputNeedCheckValidate = [...arrInput, ...arrInputDoiTuong]; // biến mảng lưu các input cần xử lý validate
 
@@ -253,53 +251,50 @@ const checkedValidation = () => {
     } else if (combineArr[i].id === "hoTen") {
       checkName(combineArr[i].value, combineArr[i].idTb);
     } else {
-      checkEmpty(
-        combineArr[i].value,
-        combineArr[i].idTb,
-        combineArr[i].id
-      );
+      checkEmpty(combineArr[i].value, combineArr[i].idTb, combineArr[i].id);
     }
   }
 
-  if (document.querySelector('.is-invalid')) {
+  if (document.querySelector(".is-invalid")) {
     return false;
   }
   return true;
 };
 
 window.handleClickAddModalOpen = () => {
-  document.getElementById('addAndEditModal').classList.add('add');
+  document.getElementById("addAndEditModal").classList.add("add");
   handleDisableTag();
-}
+};
 
 window.handleCloseModal = () => {
-  let arrInput = document.querySelectorAll(
-    "#formInput .main-input"
-  );
+  let arrInput = document.querySelectorAll("#formInput .main-input");
   let arrInputDoiTuong = document.querySelectorAll("#idDoiTuong input");
   let allInput = [...arrInput, ...arrInputDoiTuong]; // biến mảng lưu các input cần xử lý validate
 
-  if (document.querySelector('#addAndEditModal.add')) {
-    document.getElementById('addAndEditModal').classList.remove('add');
+  if (document.querySelector("#addAndEditModal.add")) {
+    document.getElementById("addAndEditModal").classList.remove("add");
   }
-  if (document.querySelector('#addAndEditModal.edit')) {
-    document.getElementById('addAndEditModal').classList.remove('edit');
+  if (document.querySelector("#addAndEditModal.edit")) {
+    document.getElementById("addAndEditModal").classList.remove("edit");
   }
 
-  allInput.forEach(item => {
-    item.value = '';
-  })
-}
+  allInput.forEach((item) => {
+    item.value = "";
+  });
+};
 
 const handleDisableTag = () => {
-  if (document.querySelector('#addAndEditModal.add') && !document.querySelector('#addAndEditModal.edit')) {
-    document.getElementById('btnUpdate').classList.add('disabled');
-    document.getElementById('btnSave').classList.remove('disabled');
-    document.getElementById('ma').disabled = false;
+  if (
+    document.querySelector("#addAndEditModal.add") &&
+    !document.querySelector("#addAndEditModal.edit")
+  ) {
+    document.getElementById("btnUpdate").classList.add("disabled");
+    document.getElementById("btnSave").classList.remove("disabled");
+    document.getElementById("ma").disabled = false;
   }
-  if (document.querySelector('#addAndEditModal.add.edit')) {
-    document.getElementById('btnSave').classList.add('disabled');
-    document.getElementById('btnUpdate').classList.remove('disabled');
-    document.getElementById('ma').disabled = true;
+  if (document.querySelector("#addAndEditModal.add.edit")) {
+    document.getElementById("btnSave").classList.add("disabled");
+    document.getElementById("btnUpdate").classList.remove("disabled");
+    document.getElementById("ma").disabled = true;
   }
-}
+};
