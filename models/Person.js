@@ -1,10 +1,11 @@
-export default class Student {
-  constructor(diemToan, diemLy, diemHoa) {
-    this.diemToan = diemToan;
-    this.diemLy = diemLy;
-    this.diemHoa = diemHoa;
+export default class Person {
+  constructor(hoTen, diaChi, ma, email, doiTuong, privateInfo, infoDetail) {
+    this.hoTen = hoTen;
+    this.diaChi = diaChi;
+    this.ma = ma;
+    this.email = email;
+    this.doiTuong = doiTuong;
+    this.privateInfo = privateInfo;
+    this.infoDetail = infoDetail;
   }
-  tinhDiemTrungBinh = () => {
-    return (this.diemToan * 1 + this.diemLy * 1 + this.diemHoa * 1) / 3;
-  };
 }
