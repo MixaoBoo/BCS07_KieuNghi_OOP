@@ -25,7 +25,7 @@ export default class ListPerson {
             <td>${privateInfo}</td>
             <td>
             <button class="btn btn-danger" onclick="removePerson('${ma}')">Xoá</button>
-            <button class="btn btn-warning" onclick="getInfoDetail('${ma}')">Chỉnh sửa</button>
+            <button class="btn btn-warning" onclick="handleClickEditModalOpen('${ma}')">Chỉnh sửa</button>
             </td>
           </tr>`;
     });

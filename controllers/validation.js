@@ -1,4 +1,4 @@
-kiemTraRong = (checkInput, idThongBao, idInput) => {
+export const checkEmpty = (checkInput, idThongBao, idInput) => {
   if (checkInput) {
     document.getElementById(idThongBao).innerHTML = "";
     document.getElementById(idInput).classList.remove("is-invalid");
@@ -12,7 +12,7 @@ kiemTraRong = (checkInput, idThongBao, idInput) => {
 };
 
 // Check email
-kiemTraEmail = (checkInput, idThongBao) => {
+export const checkEmail = (checkInput, idThongBao) => {
   let regexEmail =
     /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   let hopLe = regexEmail.test(checkInput);
@@ -28,9 +28,10 @@ kiemTraEmail = (checkInput, idThongBao) => {
 };
 
 // check tên: là chữ
-checkName = (checkInput, idThongBao) => {
+export const checkName = (checkInput, idThongBao) => {
   let regexName = /^[\p{L}\s]+$/u;
   let hopLe = regexName.test(checkInput);
+  console.log("idThongBao: ", idThongBao);
   if (hopLe) {
     document.getElementById(idThongBao).innerHTML = "";
     document.getElementById("hoTen").classList.remove("is-invalid");

@@ -97,7 +97,8 @@
               id="addPerson"
               class="btn_add btn btn-primary"
               data-bs-toggle="modal"
-              data-bs-target="#staticBackdrop"
+              data-bs-target="#addAndEditModal"
+              onclick="handleClickAddModalOpen()"
             >
               <i class="fa-solid fa-plus"></i>
               Thêm người
@@ -138,7 +139,7 @@
     <!-- Modal -->
     <div
       class="modal fade"
-      id="staticBackdrop"
+      id="addAndEditModal"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
       tabindex="-1"
@@ -164,54 +165,59 @@
                 <label for="" class="form-label">HỌ VÀ TÊN</label>
                 <input
                   type="text"
-                  class="form-control main-input is-invalid" required
+                  class="form-control main-input"
+                  required
                   name=""
                   id="hoTen"
                   aria-describedby="helpId"
                   placeholder=""
                 />
-                <p id="tbHoTen" class="text-error"></p>
+                <p id="tbHoTen" class="text-error invalid-feedback"></p>
               </div>
               <div class="mb-3 col-6">
                 <label for="" class="form-label">ID</label>
                 <input
                   type="text"
-                  class="form-control main-input is-invalid" required
+                  class="form-control main-input"
+                  required
                   name=""
                   id="ma"
                   aria-describedby="helpId"
                   placeholder=""
                 />
-                <p id="tbID" class="text-error"></p>
+                <p id="tbID" class="text-error invalid-feedback"></p>
               </div>
               <div class="mb-3 col-6">
                 <label for="" class="form-label">EMAIL</label>
                 <input
                   type="email"
-                  class="form-control main-input is-invalid" required
+                  class="form-control main-input"
+                  required
                   name=""
                   id="email"
                   aria-describedby="helpId"
                   placeholder=""
                 />
-                <p id="tbEmail" class="text-error"></p>
+                <p id="tbEmail" class="text-error invalid-feedback"></p>
               </div>
               <div class="mb-3 col-6">
                 <label for="" class="form-label">ĐỊA CHỈ</label>
                 <input
                   type="text"
-                  class="form-control main-input is-invalid" required
+                  class="form-control main-input"
+                  required
                   name=""
                   id="diaChi"
                   aria-describedby="helpId"
                   placeholder=""
                 />
-                <p id="tbDiaChi" class="text-error"></p>
+                <p id="tbDiaChi" class="text-error invalid-feedback"></p>
               </div>
               <div class="mb-3 col-6">
                 <label for="" class="form-label">ĐỐI TƯỢNG</label>
                 <select
-                  class="form-select form-select-lg is-invalid" required
+                  class="form-select form-select-lg"
+                  required
                   name=""
                   id="doiTuong"
                   onchange="handleChangeUserType()"
@@ -221,7 +227,6 @@
                   <option value="Customer">Customer</option>
                 </select>
               </div>
-              <p id="tbDoiTuong" class="text-error"></p>
               <div id="idDoiTuong" class="doiTuong"></div>
             </div>
           </div>
@@ -231,6 +236,7 @@
               id="btnClose"
               class="btn btn-secondary"
               data-bs-dismiss="modal"
+              onclick="handleCloseModal()"
             >
               Đóng
             </button>
